@@ -5,10 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProfessorRepository")
- * @ORM\Table(name="professores")
+ * @ORM\Entity(repositoryClass="App\Repository\SalaRepository")
+ * @ORM\Table(name="salas")
  */
-class Professor implements \JsonSerializable
+class Sala implements \JsonSerializable
 {
     use JsonSerializableTrait;
 
@@ -20,23 +20,23 @@ class Professor implements \JsonSerializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $nome;
+    private $numero;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNome(): ?string
+    public function getNumero(): ?int
     {
-        return $this->nome;
+        return $this->numero;
     }
 
-    public function setNome(string $nome): self
+    public function setNumero(int $numero): self
     {
-        $this->nome = $nome;
+        $this->numero = $numero;
 
         return $this;
     }
